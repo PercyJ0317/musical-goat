@@ -1,8 +1,38 @@
-This is
-<span style="color:green">
-  green
-</span>
-and this is 
-<span style="color:pink">
-  pink.
-</span>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        #eye {
+          position: absolute;
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          width: 6vmin;
+          height: 6vmin;
+          background: black;
+        }
+        #pupil {
+          position: absolute;
+          border-radius: 50%;
+          width: 3vmin;
+          height: 3vmin;
+          background: white;
+        }
+    </style>
+    <script>
+        function peep(e) {
+            const p = document.getElementById("pupil");
+            p.style["left"] = (3 * e.pageX / window.innerWidth).toString() + "vmin";
+            p.style["top"] = (3 * e.pageY / window.innerHeight).toString() + "vmin";
+        }
+        
+        document.addEventListener('mousemove', peep);
+    </script>
+        
+  </head>
+  <body>
+      <div id="eye">
+        <div id="pupil"></div>
+      </div>
+  </body>
+</html>
